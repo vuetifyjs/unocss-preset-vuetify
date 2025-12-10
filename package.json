@@ -20,13 +20,17 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "lint": "eslint .",
-    "prepublishOnly": "npm run build"
+    "release": "pnpm build && bumpp -r"
   },
   "peerDependencies": {
     "unocss": ">=0.50.0"
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "bumpp": "^10.1.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "conventional-changelog-vuetify": "^2.0.2",
+    "conventional-github-releaser": "^3.1.5",
     "eslint": "^9.39.1",
     "eslint-config-vuetify": "^4.3.3",
     "typescript": "^5.7.2",
@@ -45,5 +49,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/vuetifyjs/unocss-preset-vuetify"
-  }
+  },
+  "packageManager": "pnpm@10.11.0"
 }
