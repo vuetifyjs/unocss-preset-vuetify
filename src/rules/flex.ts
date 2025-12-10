@@ -1,0 +1,14 @@
+import type { Rule } from 'unocss'
+
+export function flexRules (): Rule[] {
+  const rules: Rule[] = [['flex-row', { 'flex-direction': 'row' }], ['flex-row-reverse', { 'flex-direction': 'row-reverse' }], ['flex-column', { 'flex-direction': 'column' }], ['flex-column-reverse', { 'flex-direction': 'column-reverse' }], ['flex-wrap', { 'flex-wrap': 'wrap' }], ['flex-nowrap', { 'flex-wrap': 'nowrap' }], ['flex-wrap-reverse', { 'flex-wrap': 'wrap-reverse' }], ['flex-grow-0', { 'flex-grow': '0' }], ['flex-grow-1', { 'flex-grow': '1' }], ['flex-shrink-0', { 'flex-shrink': '0' }], ['flex-shrink-1', { 'flex-shrink': '1' }], ['flex-fill', { flex: '1 1 auto' }], ['flex-1-1', { flex: '1 1 auto' }], ['flex-1-0', { flex: '1 0 auto' }], ['flex-0-1', { flex: '0 1 auto' }], ['flex-0-0', { flex: '0 0 auto' }], ['flex-1-1-0', { flex: '1 1 0%' }], ['flex-1-1-100', { flex: '1 1 100%' }], ['flex-1-0-0', { flex: '1 0 0%' }], ['flex-1-0-100', { flex: '1 0 100%' }], ['flex-0-1-0', { flex: '0 1 0%' }], ['flex-0-1-100', { flex: '0 1 100%' }], ['flex-0-0-0', { flex: '0 0 0%' }], ['flex-0-0-100', { flex: '0 0 100%' }], ['justify-start', { 'justify-content': 'flex-start' }], ['justify-end', { 'justify-content': 'flex-end' }], ['justify-center', { 'justify-content': 'center' }], ['justify-space-between', { 'justify-content': 'space-between' }], ['justify-space-around', { 'justify-content': 'space-around' }], ['justify-space-evenly', { 'justify-content': 'space-evenly' }], ['justify-items-start', { 'justify-items': 'start' }], ['justify-items-end', { 'justify-items': 'end' }], ['justify-items-center', { 'justify-items': 'center' }], ['justify-items-stretch', { 'justify-items': 'stretch' }], ['align-start', { 'align-items': 'flex-start' }], ['align-end', { 'align-items': 'flex-end' }], ['align-center', { 'align-items': 'center' }], ['align-baseline', { 'align-items': 'baseline' }], ['align-stretch', { 'align-items': 'stretch' }], ['align-content-start', { 'align-content': 'flex-start' }], ['align-content-end', { 'align-content': 'flex-end' }], ['align-content-center', { 'align-content': 'center' }], ['align-content-space-between', { 'align-content': 'space-between' }], ['align-content-space-around', { 'align-content': 'space-around' }], ['align-content-space-evenly', { 'align-content': 'space-evenly' }], ['align-content-stretch', { 'align-content': 'stretch' }], ['align-self-auto', { 'align-self': 'auto' }], ['align-self-start', { 'align-self': 'flex-start' }], ['align-self-end', { 'align-self': 'flex-end' }], ['align-self-center', { 'align-self': 'center' }], ['align-self-baseline', { 'align-self': 'baseline' }], ['align-self-stretch', { 'align-self': 'stretch' }], ['order-first', { order: '-1' }], ['order-last', { order: '13' }]]
+
+  // Flex direction
+
+  // Flex grow/shrink
+  for (let i = 0; i <= 12; i++) {
+    rules.push([`order-${i}`, { order: String(i) }])
+  }
+
+  return rules
+}
