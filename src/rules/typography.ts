@@ -29,25 +29,25 @@ export function typographyRules (): Rule[] {
     },
   ], ['text-no-wrap', { 'white-space': 'nowrap' }], ['text-pre-wrap', { 'white-space': 'pre-wrap' }], ['text-break', { 'overflow-wrap': 'break-word' }])
 
-  // Font weight
+  // Font weight (named)
   for (const [name, weight] of Object.entries(fontWeights)) {
     rules.push([`font-weight-${name}`, { 'font-weight': String(weight) }])
   }
 
+  // Font weight (numeric)
+  for (const weight of [100, 300, 400, 500, 600, 700, 900]) {
+    rules.push([`font-weight-${weight}`, { 'font-weight': String(weight) }])
+  }
+
   // Font style
-  rules.push(['font-italic', { 'font-style': 'italic' }], [
-    'text-mono',
-    { 'font-family': 'monospace' },
-  ], [
-    'text-high-emphasis',
-    { opacity: 'var(--v-high-emphasis-opacity, 0.87)' },
-  ], [
-    'text-medium-emphasis',
-    { opacity: 'var(--v-medium-emphasis-opacity, 0.6)' },
-  ], [
-    'text-disabled',
-    { opacity: 'var(--v-disabled-opacity, 0.38)' },
-  ])
+  rules.push(
+    ['font-italic', { 'font-style': 'italic' }],
+    ['text-italic', { 'font-style': 'italic' }],
+    ['text-mono', { 'font-family': 'monospace' }],
+    ['text-high-emphasis', { opacity: 'var(--v-high-emphasis-opacity, 0.87)' }],
+    ['text-medium-emphasis', { opacity: 'var(--v-medium-emphasis-opacity, 0.6)' }],
+    ['text-disabled', { opacity: 'var(--v-disabled-opacity, 0.38)' }],
+  )
 
   return rules
 }
