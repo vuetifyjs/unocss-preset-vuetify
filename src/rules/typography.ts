@@ -6,7 +6,7 @@ export function typographyRules (): Rule[] {
 
   // Typography styles: text-h1 to text-h6, text-body-1, etc.
   for (const [name, styles] of Object.entries(typography)) {
-    const className = name.replace(/(\d)/, '-$1')
+    const className = name.replace(/([a-z]{2,})(\d)/, '$1-$2')
     const css: Record<string, string> = {
       'font-size': styles.fontSize,
       'font-weight': String(styles.fontWeight),
