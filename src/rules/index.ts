@@ -1,6 +1,7 @@
 import type { Rule } from 'unocss'
 import type { PresetVuetifyOptions } from '../theme'
 import { borderRules } from './borders'
+import { colorRules } from './colors'
 import { cursorRules } from './cursor'
 import { displayRules } from './display'
 import { elevationRules } from './elevation'
@@ -29,5 +30,6 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...cursorRules(),
     ...elevationRules(),
     ...pointerEventsRules(),
+    ...colorRules(),
   ]
 }
