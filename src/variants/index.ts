@@ -4,9 +4,9 @@ import { breakpointVariants } from './breakpoints'
 import { printVariant } from './print'
 import { visibilityVariants } from './visibility'
 
-export function createVariants (options: PresetVuetifyOptions): Variant[] {
+export function createVariants (options: PresetVuetifyOptions, staticRuleNames: Set<string>): Variant[] {
   return [
-    ...breakpointVariants(options),
+    ...breakpointVariants(options, staticRuleNames),
     ...visibilityVariants(options),
     printVariant(),
   ]

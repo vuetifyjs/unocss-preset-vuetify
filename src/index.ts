@@ -1,5 +1,5 @@
 export { presetVuetify } from './preset'
-export type { PresetVuetifyOptions } from './theme'
+export type { PresetVuetifyOptions, RuleGroup } from './theme'
 export {
   borderRadii,
   defaultBreakpoints,

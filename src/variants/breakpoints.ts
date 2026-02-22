@@ -2,7 +2,7 @@ import type { Variant } from 'unocss'
 import type { PresetVuetifyOptions } from '../theme'
 import { defaultBreakpoints } from '../theme'
 
-export function breakpointVariants (options: PresetVuetifyOptions): Variant[] {
+export function breakpointVariants (options: PresetVuetifyOptions, staticRuleNames: Set<string>): Variant[] {
   const breakpoints = options.breakpoints ?? defaultBreakpoints
   const variants: Variant[] = []
 
@@ -10,6 +10,13 @@ export function breakpointVariants (options: PresetVuetifyOptions): Variant[] {
     variants.push({
       name: `vuetify-${name}`,
       match (matcher) {
+        // Skip if the full class is itself a registered static rule.
+        // This prevents e.g. `rounded-xl` from being treated as `rounded` at
+        // the `xl` breakpoint, since `xl` is both a breakpoint and a radius size.
+        if (staticRuleNames.has(matcher)) {
+          return
+        }
+
         const regex = new RegExp(`^(.+)-${name}$`)
         const match = matcher.match(regex)
         if (!match) {

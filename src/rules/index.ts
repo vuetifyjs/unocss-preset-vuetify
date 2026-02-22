@@ -1,6 +1,7 @@
 import type { Rule } from 'unocss'
 import type { PresetVuetifyOptions } from '../theme'
 import { borderRules } from './borders'
+import { colorRules } from './colors'
 import { cursorRules } from './cursor'
 import { displayRules } from './display'
 import { elevationRules } from './elevation'
@@ -15,19 +16,22 @@ import { spacingRules } from './spacing'
 import { typographyRules } from './typography'
 
 export function createRules (options: PresetVuetifyOptions): Rule[] {
+  const exclude = new Set(options.exclude ?? [])
+
   return [
-    ...spacingRules(options),
-    ...displayRules(),
-    ...flexRules(),
-    ...typographyRules(),
-    ...borderRules(),
-    ...sizingRules(),
-    ...positionRules(),
-    ...overflowRules(),
-    ...floatRules(),
-    ...opacityRules(),
-    ...cursorRules(),
-    ...elevationRules(),
-    ...pointerEventsRules(),
+    ...(exclude.has('spacing') ? [] : spacingRules(options)),
+    ...(exclude.has('display') ? [] : displayRules()),
+    ...(exclude.has('flex') ? [] : flexRules()),
+    ...(exclude.has('typography') ? [] : typographyRules()),
+    ...(exclude.has('borders') ? [] : borderRules()),
+    ...(exclude.has('sizing') ? [] : sizingRules()),
+    ...(exclude.has('position') ? [] : positionRules()),
+    ...(exclude.has('overflow') ? [] : overflowRules()),
+    ...(exclude.has('float') ? [] : floatRules()),
+    ...(exclude.has('opacity') ? [] : opacityRules()),
+    ...(exclude.has('cursor') ? [] : cursorRules()),
+    ...(exclude.has('elevation') ? [] : elevationRules()),
+    ...(exclude.has('pointerEvents') ? [] : pointerEventsRules()),
+    ...(exclude.has('colors') ? [] : colorRules()),
   ]
 }

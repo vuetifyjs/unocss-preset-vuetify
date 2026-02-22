@@ -4,16 +4,25 @@ import { createRules } from './rules'
 import { createRtlRules, createVariants } from './variants'
 
 export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
+  const rules = [...createRules(options), ...createRtlRules(options)]
+
+  const staticRuleNames = new Set(
+    rules
+      .filter(r => typeof r[0] === 'string')
+      .map(r => r[0] as string),
+  )
+
   return {
     name: 'unocss-preset-vuetify',
-    rules: [
-      ...createRules(options),
-      ...createRtlRules(options),
-    ],
-    variants: createVariants(options),
-    options: {
-      // Vuetify utilities typically use !important
-      // Can be overridden via options
+    rules,
+    variants: createVariants(options, staticRuleNames),
+    postprocess (util) {
+      if (!options.important) return
+      util.entries.forEach(entry => {
+        if (entry[1] != null && !String(entry[1]).endsWith('!important')) {
+          ;(entry as [string, string])[1] = `${entry[1]} !important`
+        }
+      })
     },
   }
 }
