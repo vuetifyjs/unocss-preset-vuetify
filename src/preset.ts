@@ -17,12 +17,14 @@ export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
     rules,
     variants: createVariants(options, staticRuleNames),
     postprocess (util) {
-      if (!options.important) return
-      util.entries.forEach(entry => {
+      if (!options.important) {
+        return
+      }
+      for (const entry of util.entries) {
         if (entry[1] != null && !String(entry[1]).endsWith('!important')) {
           ;(entry as [string, string])[1] = `${entry[1]} !important`
         }
-      })
+      }
     },
   }
 }

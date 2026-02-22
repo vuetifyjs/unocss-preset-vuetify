@@ -16,7 +16,7 @@ import { spacingRules } from './spacing'
 import { typographyRules } from './typography'
 
 export function createRules (options: PresetVuetifyOptions): Rule[] {
-  const exclude = new Set(options.exclude ?? [])
+  const exclude = new Set(options.exclude)
 
   return [
     ...(exclude.has('spacing') ? [] : spacingRules(options)),

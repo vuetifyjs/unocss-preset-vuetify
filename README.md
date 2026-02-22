@@ -1,6 +1,12 @@
 # unocss-preset-vuetify
 
-UnoCSS preset that replicates [Vuetify](https://vuetifyjs.com) utility classes.
+UnoCSS preset that replicates [Vuetify](https://vuetifyjs.com) utility classes — same class names, on-demand generation, zero unused CSS.
+
+## Why?
+
+Vuetify ships a comprehensive set of utility classes, but they're generated at build time — **all of them**, whether you use 5 or 500. This preset lets you replace that with UnoCSS's on-demand engine: only the classes you actually use end up in your bundle.
+
+Same `ma-4`, `d-flex`, `text-h1` classes you already know. Dramatically smaller CSS output.
 
 ## Installation
 
@@ -8,7 +14,7 @@ UnoCSS preset that replicates [Vuetify](https://vuetifyjs.com) utility classes.
 pnpm add -D unocss-preset-vuetify unocss
 ```
 
-## Usage
+## Quick Start
 
 ```ts
 // uno.config.ts
@@ -21,6 +27,54 @@ export default defineConfig({
   ],
 })
 ```
+
+## Using with Vuetify
+
+To get the full benefit, you need to **disable Vuetify's built-in utility CSS** so you're not shipping both. Vuetify's SASS settings allow you to do this cleanly.
+
+### Step 1: Create a SASS settings file
+
+```scss
+// src/styles/settings.scss
+
+// Disable Vuetify's built-in utility and color-pack CSS generation
+@forward 'vuetify/settings' with (
+  $utilities: false,
+  $color-pack: false
+);
+```
+
+### Step 2: Configure the Vuetify Vite plugin
+
+Point `vite-plugin-vuetify` at your custom settings file so it picks up the overrides:
+
+```ts
+// vite.config.ts
+import vuetify from 'vite-plugin-vuetify'
+import UnoCSS from 'unocss/vite'
+
+export default defineConfig({
+  plugins: [
+    vuetify({
+      styles: {
+        configFile: 'src/styles/settings.scss',
+      },
+    }),
+    UnoCSS(),
+  ],
+})
+```
+
+### Step 3: Import UnoCSS in your app
+
+```ts
+// main.ts
+import 'virtual:uno.css'
+```
+
+That's it. Vuetify components continue to work normally — their component styles are untouched. Only the utility classes are now generated on-demand by UnoCSS instead of statically by Vuetify's SASS pipeline.
+
+> **Note:** This is fully opt-in. If you don't disable Vuetify's utilities, both will work side by side (UnoCSS utilities just won't save you any bundle size).
 
 ## Features
 
@@ -126,6 +180,10 @@ Directional utilities (`ms-*`, `me-*`, `ps-*`, `pe-*`, `text-start`, `text-end`,
 ## License
 
 [MIT](./LICENSE.md)
+
+## Status
+
+This preset is under active development and testing. If you run into mismatches with Vuetify's built-in classes, please [open an issue](https://github.com/vuetifyjs/unocss-preset-vuetify/issues).
 
 ## Links
 
