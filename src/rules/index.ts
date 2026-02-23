@@ -7,6 +7,7 @@ import { displayRules } from './display'
 import { elevationRules } from './elevation'
 import { flexRules } from './flex'
 import { floatRules } from './float'
+import { gridRules } from './grid'
 import { opacityRules } from './opacity'
 import { overflowRules } from './overflow'
 import { pointerEventsRules } from './pointer-events'
@@ -33,5 +34,6 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('elevation') ? [] : elevationRules()),
     ...(exclude.has('pointerEvents') ? [] : pointerEventsRules()),
     ...(exclude.has('colors') ? [] : colorRules()),
+    ...(exclude.has('grid') ? [] : gridRules()),
   ]
 }

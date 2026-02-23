@@ -143,6 +143,7 @@ export const elevations: string[] = [
 
 export type RuleGroup
   = | 'borders'
+    | 'grid'
     | 'colors'
     | 'cursor'
     | 'display'
