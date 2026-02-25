@@ -1,5 +1,6 @@
 import type { Preset } from 'unocss'
 import type { PresetVuetifyOptions } from './theme'
+import { preflights } from './preflights'
 import { createRules } from './rules'
 import { createRtlRules, createVariants } from './variants'
 
@@ -20,6 +21,7 @@ export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
     },
     rules,
     variants: createVariants(options, staticRuleNames),
+    preflights: preflights(options),
     postprocess (util) {
       if (!options.important) {
         return

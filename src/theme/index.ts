@@ -36,36 +36,36 @@ export const borderRadii = {
 type TypographyPreset = Record<string, Record<string, string | number>>
 export const typographyPresets: { md2: TypographyPreset, md3: TypographyPreset } = {
   md2: {
-    h1: { fontSize: '6rem', fontWeight: 300, lineHeight: 1.167, letterSpacing: '-0.015625em' },
-    h2: { fontSize: '3.75rem', fontWeight: 300, lineHeight: 1.2, letterSpacing: '-0.0083333333em' },
-    h3: { fontSize: '3rem', fontWeight: 400, lineHeight: 1.167, letterSpacing: 'normal' },
-    h4: { fontSize: '2.125rem', fontWeight: 400, lineHeight: 1.235, letterSpacing: '0.0073529412em' },
-    h5: { fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.334, letterSpacing: 'normal' },
-    h6: { fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.6, letterSpacing: '0.0125em' },
-    subtitle1: { fontSize: '1rem', fontWeight: 400, lineHeight: 1.75, letterSpacing: '0.009375em' },
-    subtitle2: { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.57, letterSpacing: '0.0071428571em' },
-    body1: { fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
-    body2: { fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.43, letterSpacing: '0.0178571429em' },
-    button: { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.75, letterSpacing: '0.0892857143em', textTransform: 'uppercase' },
-    caption: { fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.66, letterSpacing: '0.0333333333em' },
-    overline: { fontSize: '0.75rem', fontWeight: 500, lineHeight: 2.66, letterSpacing: '0.1666666667em', textTransform: 'uppercase' },
+    h1: { fontFamily: 'var(--v-font-heading)', fontSize: '6rem', fontWeight: 300, lineHeight: 1.167, letterSpacing: '-0.015625em' },
+    h2: { fontFamily: 'var(--v-font-heading)', fontSize: '3.75rem', fontWeight: 300, lineHeight: 1.2, letterSpacing: '-0.0083333333em' },
+    h3: { fontFamily: 'var(--v-font-heading)', fontSize: '3rem', fontWeight: 400, lineHeight: 1.167, letterSpacing: 'normal' },
+    h4: { fontFamily: 'var(--v-font-heading)', fontSize: '2.125rem', fontWeight: 400, lineHeight: 1.235, letterSpacing: '0.0073529412em' },
+    h5: { fontFamily: 'var(--v-font-heading)', fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.334, letterSpacing: 'normal' },
+    h6: { fontFamily: 'var(--v-font-heading)', fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.6, letterSpacing: '0.0125em' },
+    subtitle1: { fontFamily: 'var(--v-font-body)', fontSize: '1rem', fontWeight: 400, lineHeight: 1.75, letterSpacing: '0.009375em' },
+    subtitle2: { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.57, letterSpacing: '0.0071428571em' },
+    body1: { fontFamily: 'var(--v-font-body)', fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
+    body2: { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.43, letterSpacing: '0.0178571429em' },
+    button: { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.75, letterSpacing: '0.0892857143em', textTransform: 'uppercase' },
+    caption: { fontFamily: 'var(--v-font-body)', fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.66, letterSpacing: '0.0333333333em' },
+    overline: { fontFamily: 'var(--v-font-body)', fontSize: '0.75rem', fontWeight: 500, lineHeight: 2.66, letterSpacing: '0.1666666667em', textTransform: 'uppercase' },
   },
   md3: {
-    'display-large': { fontSize: '3.5625rem', fontWeight: 400, lineHeight: 1.1228070175, letterSpacing: '-0.0043859649em' },
-    'display-medium': { fontSize: '2.8125rem', fontWeight: 400, lineHeight: 1.1555555556, letterSpacing: 'normal' },
-    'display-small': { fontSize: '2.25rem', fontWeight: 400, lineHeight: 1.2222222222, letterSpacing: 'normal' },
-    'headline-large': { fontSize: '2rem', fontWeight: 400, lineHeight: 1.25, letterSpacing: 'normal' },
-    'headline-medium': { fontSize: '1.75rem', fontWeight: 400, lineHeight: 1.2857142857, letterSpacing: 'normal' },
-    'headline-small': { fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: 'normal' },
-    'title-large': { fontSize: '1.375rem', fontWeight: 400, lineHeight: 1.2727272727, letterSpacing: 'normal' },
-    'title-medium': { fontSize: '1rem', fontWeight: 500, lineHeight: 1.5, letterSpacing: '0.009375em' },
-    'title-small': { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
-    'body-large': { fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
-    'body-medium': { fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.4285714286, letterSpacing: '0.0178571429em' },
-    'body-small': { fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: '0.0333333333em' },
-    'label-large': { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
-    'label-medium': { fontSize: '0.75rem', fontWeight: 500, lineHeight: 1.3333333333, letterSpacing: '0.0416666667em' },
-    'label-small': { fontSize: '0.6875rem', fontWeight: 500, lineHeight: 1.4545454545, letterSpacing: '0.0454545455em' },
+    'display-large': { fontFamily: 'var(--v-font-heading)', fontSize: '3.5625rem', fontWeight: 400, lineHeight: 1.1228070175, letterSpacing: '-0.0043859649em' },
+    'display-medium': { fontFamily: 'var(--v-font-heading)', fontSize: '2.8125rem', fontWeight: 400, lineHeight: 1.1555555556, letterSpacing: 'normal' },
+    'display-small': { fontFamily: 'var(--v-font-heading)', fontSize: '2.25rem', fontWeight: 400, lineHeight: 1.2222222222, letterSpacing: 'normal' },
+    'headline-large': { fontFamily: 'var(--v-font-heading)', fontSize: '2rem', fontWeight: 400, lineHeight: 1.25, letterSpacing: 'normal' },
+    'headline-medium': { fontFamily: 'var(--v-font-heading)', fontSize: '1.75rem', fontWeight: 400, lineHeight: 1.2857142857, letterSpacing: 'normal' },
+    'headline-small': { fontFamily: 'var(--v-font-heading)', fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: 'normal' },
+    'title-large': { fontFamily: 'var(--v-font-heading)', fontSize: '1.375rem', fontWeight: 400, lineHeight: 1.2727272727, letterSpacing: 'normal' },
+    'title-medium': { fontFamily: 'var(--v-font-body)', fontSize: '1rem', fontWeight: 500, lineHeight: 1.5, letterSpacing: '0.009375em' },
+    'title-small': { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
+    'body-large': { fontFamily: 'var(--v-font-body)', fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
+    'body-medium': { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.4285714286, letterSpacing: '0.0178571429em' },
+    'body-small': { fontFamily: 'var(--v-font-body)', fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: '0.0333333333em' },
+    'label-large': { fontFamily: 'var(--v-font-body)', fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
+    'label-medium': { fontFamily: 'var(--v-font-body)', fontSize: '0.75rem', fontWeight: 500, lineHeight: 1.3333333333, letterSpacing: '0.0416666667em' },
+    'label-small': { fontFamily: 'var(--v-font-body)', fontSize: '0.6875rem', fontWeight: 500, lineHeight: 1.4545454545, letterSpacing: '0.0454545455em' },
   },
 }
 
@@ -121,6 +121,7 @@ export interface PresetVuetifyOptions {
   typography?: TypographyOptions
   breakpoints?: Record<string, string>
   important?: boolean
+  font?: Record<string, string>
   /** Rule groups to exclude from the preset */
   exclude?: RuleGroup[]
 }
