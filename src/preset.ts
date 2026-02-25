@@ -14,6 +14,10 @@ export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
 
   return {
     name: 'unocss-preset-vuetify',
+    layers: {
+      typography: -1,
+      utilities: 0,
+    },
     rules,
     variants: createVariants(options, staticRuleNames),
     postprocess (util) {
