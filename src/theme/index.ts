@@ -30,7 +30,7 @@ export const borderRadii = {
   'shaped': '24px 0',
 }
 
-export const typography = {
+export const typography: Record<string, Record<string, string | number>> = {
   h1: {
     fontSize: '6rem',
     fontWeight: 300,
@@ -162,6 +162,7 @@ export interface PresetVuetifyOptions {
   prefix?: string
   spacer?: number
   spacerSteps?: number
+  typography?: Record<string, Record<string, string | number>>
   breakpoints?: Record<string, string>
   important?: boolean
   /** Rule groups to exclude from the preset */

@@ -1,33 +1,39 @@
 import type { Rule } from 'unocss'
-import { fontWeights, typography } from '../theme'
+import { fontWeights, typography as md2 } from '../theme'
+import { kebabCase } from '../utils'
 
-export function typographyRules (): Rule[] {
+export function typographyRules (typography = md2): Rule[] {
   const rules: Rule[] = []
 
   // Typography styles: text-h1 to text-h6, text-body-1, etc.
   for (const [name, styles] of Object.entries(typography)) {
     const className = name.replace(/([a-z]{2,})(\d)/, '$1-$2')
-    const css: Record<string, string> = {
-      'font-size': styles.fontSize,
-      'font-weight': String(styles.fontWeight),
-      'line-height': String(styles.lineHeight),
-      'letter-spacing': styles.letterSpacing,
-    }
-    if ('textTransform' in styles) {
-      css['text-transform'] = styles.textTransform as string
-    }
-    rules.push([`text-${className}`, css])
+    const css: Record<string, string | number> = Object.entries(styles)
+      .reduce(
+        (o, [key, value]) => ({ ...o, [kebabCase(key)]: value }),
+        {} as Record<string, string | number>,
+      )
+    rules.push([`text-${className}`, css, { layer: 'typography' }])
   }
 
-  // Text alignment
-  rules.push(['text-left', { 'text-align': 'left' }], ['text-right', { 'text-align': 'right' }], ['text-center', { 'text-align': 'center' }], ['text-justify', { 'text-align': 'justify' }], ['text-uppercase', { 'text-transform': 'uppercase' }], ['text-lowercase', { 'text-transform': 'lowercase' }], ['text-capitalize', { 'text-transform': 'capitalize' }], ['text-none', { 'text-transform': 'none' }], ['text-decoration-none', { 'text-decoration': 'none' }], ['text-decoration-underline', { 'text-decoration': 'underline' }], ['text-decoration-overline', { 'text-decoration': 'overline' }], ['text-decoration-line-through', { 'text-decoration': 'line-through' }], [
-    'text-truncate',
-    {
-      'overflow': 'hidden',
-      'text-overflow': 'ellipsis',
-      'white-space': 'nowrap',
-    },
-  ], ['text-no-wrap', { 'white-space': 'nowrap' }], ['text-pre-wrap', { 'white-space': 'pre-wrap' }], ['text-break', { 'overflow-wrap': 'break-word' }])
+  rules.push(
+    ['text-left', { 'text-align': 'left' }],
+    ['text-right', { 'text-align': 'right' }],
+    ['text-center', { 'text-align': 'center' }],
+    ['text-justify', { 'text-align': 'justify' }],
+    ['text-uppercase', { 'text-transform': 'uppercase' }],
+    ['text-lowercase', { 'text-transform': 'lowercase' }],
+    ['text-capitalize', { 'text-transform': 'capitalize' }],
+    ['text-none', { 'text-transform': 'none' }],
+    ['text-decoration-none', { 'text-decoration': 'none' }],
+    ['text-decoration-underline', { 'text-decoration': 'underline' }],
+    ['text-decoration-overline', { 'text-decoration': 'overline' }],
+    ['text-decoration-line-through', { 'text-decoration': 'line-through' }],
+    ['text-truncate', { 'overflow': 'hidden', 'text-overflow': 'ellipsis', 'white-space': 'nowrap' }],
+    ['text-no-wrap', { 'white-space': 'nowrap' }],
+    ['text-pre-wrap', { 'white-space': 'pre-wrap' }],
+    ['text-break', { 'overflow-wrap': 'break-word' }],
+  )
 
   // Font weight (named)
   for (const [name, weight] of Object.entries(fontWeights)) {
