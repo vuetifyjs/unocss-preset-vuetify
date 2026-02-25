@@ -1,3 +1,6 @@
+import type { TypographyOptions } from '../rules/typography'
+
+/* eslint-disable unicorn/numeric-separators-style */
 export const defaultBreakpoints = {
   sm: '600px',
   md: '960px',
@@ -30,86 +33,39 @@ export const borderRadii = {
   'shaped': '24px 0',
 }
 
-export const typography: Record<string, Record<string, string | number>> = {
-  h1: {
-    fontSize: '6rem',
-    fontWeight: 300,
-    lineHeight: 1.167,
-    letterSpacing: '-0.015625em',
+type TypographyPreset = Record<string, Record<string, string | number>>
+export const typographyPresets: { md2: TypographyPreset, md3: TypographyPreset } = {
+  md2: {
+    h1: { fontSize: '6rem', fontWeight: 300, lineHeight: 1.167, letterSpacing: '-0.015625em' },
+    h2: { fontSize: '3.75rem', fontWeight: 300, lineHeight: 1.2, letterSpacing: '-0.0083333333em' },
+    h3: { fontSize: '3rem', fontWeight: 400, lineHeight: 1.167, letterSpacing: 'normal' },
+    h4: { fontSize: '2.125rem', fontWeight: 400, lineHeight: 1.235, letterSpacing: '0.0073529412em' },
+    h5: { fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.334, letterSpacing: 'normal' },
+    h6: { fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.6, letterSpacing: '0.0125em' },
+    subtitle1: { fontSize: '1rem', fontWeight: 400, lineHeight: 1.75, letterSpacing: '0.009375em' },
+    subtitle2: { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.57, letterSpacing: '0.0071428571em' },
+    body1: { fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
+    body2: { fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.43, letterSpacing: '0.0178571429em' },
+    button: { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.75, letterSpacing: '0.0892857143em', textTransform: 'uppercase' },
+    caption: { fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.66, letterSpacing: '0.0333333333em' },
+    overline: { fontSize: '0.75rem', fontWeight: 500, lineHeight: 2.66, letterSpacing: '0.1666666667em', textTransform: 'uppercase' },
   },
-  h2: {
-    fontSize: '3.75rem',
-    fontWeight: 300,
-    lineHeight: 1.2,
-    letterSpacing: '-0.0083333333em',
-  },
-  h3: {
-    fontSize: '3rem',
-    fontWeight: 400,
-    lineHeight: 1.167,
-    letterSpacing: 'normal',
-  },
-  h4: {
-    fontSize: '2.125rem',
-    fontWeight: 400,
-    lineHeight: 1.235,
-    letterSpacing: '0.0073529412em',
-  },
-  h5: {
-    fontSize: '1.5rem',
-    fontWeight: 400,
-    lineHeight: 1.334,
-    letterSpacing: 'normal',
-  },
-  h6: {
-    fontSize: '1.25rem',
-    fontWeight: 500,
-    lineHeight: 1.6,
-    letterSpacing: '0.0125em',
-  },
-  subtitle1: {
-    fontSize: '1rem',
-    fontWeight: 400,
-    lineHeight: 1.75,
-    letterSpacing: '0.009375em',
-  },
-  subtitle2: {
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    lineHeight: 1.57,
-    letterSpacing: '0.0071428571em',
-  },
-  body1: {
-    fontSize: '1rem',
-    fontWeight: 400,
-    lineHeight: 1.5,
-    letterSpacing: '0.03125em',
-  },
-  body2: {
-    fontSize: '0.875rem',
-    fontWeight: 400,
-    lineHeight: 1.43,
-    letterSpacing: '0.0178571429em',
-  },
-  button: {
-    fontSize: '0.875rem',
-    fontWeight: 500,
-    lineHeight: 1.75,
-    letterSpacing: '0.0892857143em',
-    textTransform: 'uppercase',
-  },
-  caption: {
-    fontSize: '0.75rem',
-    fontWeight: 400,
-    lineHeight: 1.66,
-    letterSpacing: '0.0333333333em',
-  },
-  overline: {
-    fontSize: '0.75rem',
-    fontWeight: 500,
-    lineHeight: 2.66,
-    letterSpacing: '0.1666666667em',
-    textTransform: 'uppercase',
+  md3: {
+    'display-large': { fontSize: '3.5625rem', fontWeight: 400, lineHeight: 1.1228070175, letterSpacing: '-0.0043859649em' },
+    'display-medium': { fontSize: '2.8125rem', fontWeight: 400, lineHeight: 1.1555555556, letterSpacing: 'normal' },
+    'display-small': { fontSize: '2.25rem', fontWeight: 400, lineHeight: 1.2222222222, letterSpacing: 'normal' },
+    'headline-large': { fontSize: '2rem', fontWeight: 400, lineHeight: 1.25, letterSpacing: 'normal' },
+    'headline-medium': { fontSize: '1.75rem', fontWeight: 400, lineHeight: 1.2857142857, letterSpacing: 'normal' },
+    'headline-small': { fontSize: '1.5rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: 'normal' },
+    'title-large': { fontSize: '1.375rem', fontWeight: 400, lineHeight: 1.2727272727, letterSpacing: 'normal' },
+    'title-medium': { fontSize: '1rem', fontWeight: 500, lineHeight: 1.5, letterSpacing: '0.009375em' },
+    'title-small': { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
+    'body-large': { fontSize: '1rem', fontWeight: 400, lineHeight: 1.5, letterSpacing: '0.03125em' },
+    'body-medium': { fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.4285714286, letterSpacing: '0.0178571429em' },
+    'body-small': { fontSize: '0.75rem', fontWeight: 400, lineHeight: 1.3333333333, letterSpacing: '0.0333333333em' },
+    'label-large': { fontSize: '0.875rem', fontWeight: 500, lineHeight: 1.4285714286, letterSpacing: '0.0071428571em' },
+    'label-medium': { fontSize: '0.75rem', fontWeight: 500, lineHeight: 1.3333333333, letterSpacing: '0.0416666667em' },
+    'label-small': { fontSize: '0.6875rem', fontWeight: 500, lineHeight: 1.4545454545, letterSpacing: '0.0454545455em' },
   },
 }
 
@@ -162,7 +118,7 @@ export interface PresetVuetifyOptions {
   prefix?: string
   spacer?: number
   spacerSteps?: number
-  typography?: Record<string, Record<string, string | number>>
+  typography?: TypographyOptions
   breakpoints?: Record<string, string>
   important?: boolean
   /** Rule groups to exclude from the preset */

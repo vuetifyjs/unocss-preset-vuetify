@@ -7,5 +7,5 @@ export {
   defaultSpacerSteps,
   elevations,
   fontWeights,
-  typography,
+  typographyPresets,
 } from './theme'

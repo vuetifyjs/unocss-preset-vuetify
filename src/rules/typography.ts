@@ -1,12 +1,19 @@
 import type { Rule } from 'unocss'
-import { fontWeights, typography as md2 } from '../theme'
+import { fontWeights, typographyPresets } from '../theme'
 import { kebabCase } from '../utils'
 
-export function typographyRules (typography = md2): Rule[] {
+export type TypographyOptions = 'md2' | 'md3' | Record<string, Record<string, string | number>>
+
+export function typographyRules (typography: TypographyOptions = 'md3'): Rule[] {
   const rules: Rule[] = []
 
-  // Typography styles: text-h1 to text-h6, text-body-1, etc.
-  for (const [name, styles] of Object.entries(typography)) {
+  const baseShortcuts = typography === 'md2'
+    ? typographyPresets.md2
+    : (typography === 'md3'
+        ? typographyPresets.md3
+        : typography)
+
+  for (const [name, styles] of Object.entries(baseShortcuts)) {
     const className = name.replace(/([a-z]{2,})(\d)/, '$1-$2')
     const css: Record<string, string | number> = Object.entries(styles)
       .reduce(
