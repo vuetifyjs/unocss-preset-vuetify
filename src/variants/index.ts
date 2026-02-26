@@ -10,7 +10,7 @@ export function createVariants (options: PresetVuetifyOptions, staticRuleNames: 
     ...breakpointVariants(options, staticRuleNames),
     ...visibilityVariants(options),
     printVariant(),
-    ...(options.themes ? createThemeVariants(...options.themes) : []),
+    ...(options.themes ? createThemeVariants(options.themes) : []),
   ]
 }
 

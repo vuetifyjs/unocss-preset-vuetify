@@ -1,8 +1,9 @@
 import type { Variant } from 'unocss'
 
-export function createThemeVariants (...themes: string[]): Variant[] {
+export function createThemeVariants (themes: string[], options?: { order: number }): Variant[] {
   return themes
     .map(theme => ({
+      order: options ? options.order : -1,
       name: `vuetify-theme-${theme}`,
       match (matcher: string) {
         const prefix = `${theme}:`
