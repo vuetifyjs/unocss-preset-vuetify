@@ -23,7 +23,7 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('spacing') ? [] : spacingRules(options)),
     ...(exclude.has('display') ? [] : displayRules()),
     ...(exclude.has('flex') ? [] : flexRules()),
-    ...(exclude.has('typography') ? [] : typographyRules()),
+    ...(exclude.has('typography') ? [] : typographyRules(options.typography)),
     ...(exclude.has('borders') ? [] : borderRules()),
     ...(exclude.has('sizing') ? [] : sizingRules()),
     ...(exclude.has('position') ? [] : positionRules()),
@@ -36,4 +36,5 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('colors') ? [] : colorRules()),
     ...(exclude.has('grid') ? [] : gridRules()),
   ]
+    .map(([key, styles, options]) => [key, styles, options ?? { layer: 'utilities' }] as Rule)
 }
