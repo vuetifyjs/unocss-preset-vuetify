@@ -1,12 +1,22 @@
 import type { Rule } from 'unocss'
-import { elevations } from '../theme'
+import { elevationPresets } from '../theme'
 
-export function elevationRules (): Rule[] {
+export type ElevationOptions = 'md2' | 'md3' | Record<string, Record<string, string>>
+
+export function elevationRules (elevation: ElevationOptions = 'md3'): Rule[] {
+  const preset = elevation === 'md2'
+    ? elevationPresets.md2
+    : (elevation === 'md3'
+        ? elevationPresets.md3
+        : elevation)
+
   const rules: Rule[] = []
 
-  for (let i = 0; i <= 24; i++) {
-    rules.push([`elevation-${i}`, { 'box-shadow': elevations[i] }])
+  for (const [level, styles] of Object.entries(preset)) {
+    rules.push([`elevation-${level}`, styles])
   }
+
+  rules.push(['elevation-overlay', { 'background-image': 'linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay))' }])
 
   return rules
 }

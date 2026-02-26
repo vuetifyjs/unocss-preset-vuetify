@@ -31,7 +31,7 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('float') ? [] : floatRules()),
     ...(exclude.has('opacity') ? [] : opacityRules()),
     ...(exclude.has('cursor') ? [] : cursorRules()),
-    ...(exclude.has('elevation') ? [] : elevationRules()),
+    ...(exclude.has('elevation') ? [] : elevationRules(options.elevation)),
     ...(exclude.has('pointerEvents') ? [] : pointerEventsRules()),
     ...(exclude.has('colors') ? [] : colorRules()),
     ...(exclude.has('grid') ? [] : gridRules()),
