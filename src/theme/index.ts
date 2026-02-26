@@ -153,6 +153,7 @@ export interface PresetVuetifyOptions {
   breakpoints?: Record<string, string>
   important?: boolean
   font?: Record<string, string>
+  themes?: string[]
   /** Rule groups to exclude from the preset */
   exclude?: RuleGroup[]
 }
