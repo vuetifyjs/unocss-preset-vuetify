@@ -1,5 +1,6 @@
 import type { Rule } from 'unocss'
 import { elevationPresets } from '../theme'
+import { kebabCase } from '../utils'
 
 export type ElevationOptions = 'md2' | 'md3' | Record<string, Record<string, string>>
 
@@ -13,7 +14,12 @@ export function elevationRules (elevation: ElevationOptions = 'md3'): Rule[] {
   const rules: Rule[] = []
 
   for (const [level, styles] of Object.entries(preset)) {
-    rules.push([`elevation-${level}`, styles])
+    const css: Record<string, string | number> = Object.entries(styles)
+      .reduce(
+        (o, [key, value]) => ({ ...o, [kebabCase(key)]: value }),
+        {} as Record<string, string>,
+      )
+    rules.push([`elevation-${level}`, css])
   }
 
   rules.push(['elevation-overlay', { 'background-image': 'linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay))' }])
