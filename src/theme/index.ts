@@ -101,12 +101,12 @@ export const elevationPresets: { md2: ElevationPreset, md3: ElevationPreset } = 
     '0px 11px 14px -7px [1], 0px 23px 36px 3px [2], 0px 9px 44px 8px [3]',
     '0px 11px 15px -7px [1], 0px 24px 38px 3px [2], 0px 9px 46px 8px [3]',
   ]
-    .map((line) => line
+    .map(line => line
       .replace('[1]', 'var(--v-shadow-key-umbra-opacity,    rgba(0, 0, 0, 0.2 ))')
       .replace('[2]', 'var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14))')
-      .replace('[3]', 'var(--v-shadow-key-ambient-opacity,  rgba(0, 0, 0, 0.12))')
+      .replace('[3]', 'var(--v-shadow-key-ambient-opacity,  rgba(0, 0, 0, 0.12))'),
     )
-    .map((line, i) => [String(i), { 'box-shadow': line }])
+    .map((line, i) => [String(i), { 'box-shadow': line }]),
   ),
   md3: Object.fromEntries([
     '0px 0px 0px 0px [1], 0px 0px  0px 0px [2]',
@@ -116,14 +116,14 @@ export const elevationPresets: { md2: ElevationPreset, md3: ElevationPreset } = 
     '0px 2px 3px 0px [1], 0px 6px 10px 4px [2]',
     '0px 4px 4px 0px [1], 0px 8px 12px 6px [2]',
   ]
-    .map((line) => line
+    .map(line => line
       .replace('[1]', 'rgba(var(--v-shadow-color), var(--v-shadow-key-opacity,     0.3 ))')
-      .replace('[2]', 'rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15))')
+      .replace('[2]', 'rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15))'),
     )
     .map((line, i) => [String(i), {
       'box-shadow': line,
       '--v-elevation-overlay': `color-mix(in srgb, var(--v-elevation-overlay-color, #000) ${i * elevationOverlayStep}%, transparent)`,
-    }])
+    }]),
   ),
 }
 
