@@ -1,3 +1,17 @@
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.vuetifyjs.com/docs/images/one/logos/vuno-logo-dark.png">
+    <img alt="Vuetify UnoCSS Preset Logo" src="https://cdn.vuetifyjs.com/docs/images/one/logos/vuno-logo-light.png" height="100">
+  </picture>
+</div>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/unocss-preset-vuetify"><img src="https://img.shields.io/npm/v/unocss-preset-vuetify.svg" alt="npm version"></a>
+  <a href="https://npm.chart.dev/unocss-preset-vuetify"><img src="https://img.shields.io/npm/dm/unocss-preset-vuetify?color=blue" alt="npm downloads"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://community.vuetifyjs.com"><img src="https://discordapp.com/api/guilds/340160225338195969/widget.png" alt="Discord"></a>
+</p>
+
 # unocss-preset-vuetify
 
 UnoCSS preset that replicates [Vuetify](https://vuetifyjs.com) utility classes — same class names, on-demand generation, zero unused CSS.
