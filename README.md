@@ -1,7 +1,7 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.vuetifyjs.com/docs/images/one/logos/vunocsspreset-logo-dark.png">
-    <img alt="Vuetify UnoCSS Preset Logo" src="https://cdn.vuetifyjs.com/docs/images/one/logos/vunocsspreset-logo-light.png" height="100">
+    <source media="(prefers-color-scheme: dark)" srcset="https://cdn.vuetifyjs.com/docs/images/one/logos/vunopreset-logo-dark.png">
+    <img alt="Vuetify UnoCSS Preset Logo" src="https://cdn.vuetifyjs.com/docs/images/one/logos/vunopreset-logo-light.png" height="100">
   </picture>
 </div>
 
