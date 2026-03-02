@@ -1,6 +1,6 @@
 {
   "name": "unocss-preset-vuetify",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "UnoCSS preset that replicates Vuetify utility classes",
   "type": "module",
   "main": "./dist/index.cjs",
