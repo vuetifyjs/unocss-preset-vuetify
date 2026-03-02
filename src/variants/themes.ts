@@ -12,7 +12,10 @@ export function createThemeVariants (themes: string[], options?: { order: number
         }
         return {
           matcher: matcher.slice(prefix.length),
-          selector: (s: string) => `.v-theme--${theme} ${s}`,
+          handle: (input, next) => next({
+            ...input,
+            parent: `.v-theme--${theme}${input.parent ? ` $$ ${input.parent}` : ''}`,
+          }),
         }
       },
     }))
