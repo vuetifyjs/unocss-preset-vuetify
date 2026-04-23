@@ -129,7 +129,6 @@ export const elevationPresets: { md2: ElevationPreset, md3: ElevationPreset } = 
 
 export type RuleGroup
   = | 'borders'
-    | 'grid'
     | 'colors'
     | 'cursor'
     | 'display'
