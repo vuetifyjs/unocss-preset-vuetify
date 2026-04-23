@@ -7,12 +7,6 @@ import { createRtlRules, createVariants } from './variants'
 export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
   const rules = [...createRules(options), ...createRtlRules(options)]
 
-  const staticRuleNames = new Set(
-    rules
-      .filter(r => typeof r[0] === 'string')
-      .map(r => r[0] as string),
-  )
-
   return {
     name: 'unocss-preset-vuetify',
     layers: {
@@ -20,7 +14,7 @@ export function presetVuetify (options: PresetVuetifyOptions = {}): Preset {
       utilities: 0,
     },
     rules,
-    variants: createVariants(options, staticRuleNames),
+    variants: createVariants(options, rules),
     preflights: preflights(options),
     postprocess (util) {
       if (!options.important) {
