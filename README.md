@@ -9,7 +9,7 @@
   <a href="https://www.npmjs.com/package/unocss-preset-vuetify"><img src="https://img.shields.io/npm/v/unocss-preset-vuetify.svg" alt="npm version"></a>
   <a href="https://npm.chart.dev/unocss-preset-vuetify"><img src="https://img.shields.io/npm/dm/unocss-preset-vuetify?color=blue" alt="npm downloads"></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://discord.gg/vuetify"><img src="https://discordapp.com/api/guilds/340160225338195969/widget.png" alt="Discord"></a>
+  <a href="https://discord.gg/vuetify"><img src="https://discord.com/api/guilds/1513968811047522396/widget.png" alt="Discord"></a>
 </p>
 
 # unocss-preset-vuetify
