@@ -25,6 +25,7 @@ jobs:
         with:
           node-version: 24
       - run: pnpm build
+      - run: pnpm test
       - run: npm install -g npm@latest
       - run: npm publish
       - name: GitHub release

@@ -23,7 +23,7 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('display') ? [] : displayRules()),
     ...(exclude.has('flex') ? [] : flexRules()),
     ...(exclude.has('typography') ? [] : typographyRules(options.typography)),
-    ...(exclude.has('borders') ? [] : borderRules()),
+    ...(exclude.has('borders') ? [] : borderRules(options)),
     ...(exclude.has('sizing') ? [] : sizingRules()),
     ...(exclude.has('position') ? [] : positionRules()),
     ...(exclude.has('overflow') ? [] : overflowRules()),
@@ -32,7 +32,7 @@ export function createRules (options: PresetVuetifyOptions): Rule[] {
     ...(exclude.has('cursor') ? [] : cursorRules()),
     ...(exclude.has('elevation') ? [] : elevationRules(options.elevation)),
     ...(exclude.has('pointerEvents') ? [] : pointerEventsRules()),
-    ...(exclude.has('colors') ? [] : colorRules()),
+    ...(exclude.has('colors') ? [] : colorRules(options)),
   ]
     .map(([key, styles, options]) => [key, styles, options ?? { layer: 'utilities' }] as Rule)
 }

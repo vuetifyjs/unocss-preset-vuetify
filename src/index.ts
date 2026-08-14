@@ -3,10 +3,11 @@ export type { ElevationOptions } from './rules/elevation'
 export type { TypographyOptions } from './rules/typography'
 export type { PresetVuetifyOptions, RuleGroup } from './theme'
 export {
-  borderRadii,
+  defaultBorderRadii,
   defaultBreakpoints,
   defaultSpacer,
   defaultSpacerSteps,
+  defaultThemeColors,
   elevationPresets,
   fontWeights,
   typographyPresets,

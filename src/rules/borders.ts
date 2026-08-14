@@ -1,5 +1,6 @@
 import type { Rule } from 'unocss'
-import { borderRadii } from '../theme'
+import type { PresetVuetifyOptions } from '../theme'
+import { defaultBorderRadii } from '../theme'
 
 const borderWidths: Record<string, string> = {
   0: '0',
@@ -10,7 +11,8 @@ const borderWidths: Record<string, string> = {
   xl: '8px',
 }
 
-export function borderRules (): Rule[] {
+export function borderRules (options: PresetVuetifyOptions = {}): Rule[] {
+  const radii = options.borderRadius ?? defaultBorderRadii
   const rules: Rule[] = [['border', { 'border-style': 'solid', 'border-width': 'thin' }]]
 
   // Border width: border, border-0, border-thin, border-sm, etc.
@@ -55,7 +57,7 @@ export function borderRules (): Rule[] {
   rules.push(['border-current', { 'border-color': 'currentColor' }])
 
   // Border radius (all corners)
-  for (const [name, value] of Object.entries(borderRadii)) {
+  for (const [name, value] of Object.entries(radii)) {
     const className = name === '' ? 'rounded' : `rounded-${name}`
     rules.push([className, { 'border-radius': value }])
   }
@@ -73,7 +75,7 @@ export function borderRules (): Rule[] {
   }
 
   for (const [dir, props] of Object.entries(radiusDirections)) {
-    for (const [name, value] of Object.entries(borderRadii)) {
+    for (const [name, value] of Object.entries(radii)) {
       const className = name === '' ? `rounded-${dir}` : `rounded-${dir}-${name}`
       const css = Object.fromEntries(props.map(p => [p, value]))
       rules.push([className, css])
@@ -92,7 +94,7 @@ export function borderRules (): Rule[] {
   }
 
   for (const [dir, props] of Object.entries(logicalRadiusDirections)) {
-    for (const [name, value] of Object.entries(borderRadii)) {
+    for (const [name, value] of Object.entries(radii)) {
       const className = name === '' ? `rounded-${dir}` : `rounded-${dir}-${name}`
       const css = Object.fromEntries(props.map(p => [p, value]))
       rules.push([className, css])

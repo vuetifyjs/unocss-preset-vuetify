@@ -23,7 +23,7 @@ export const fontWeights = {
   black: 900,
 }
 
-export const borderRadii = {
+export const defaultBorderRadii: Record<string, string> = {
   '0': '0',
   'sm': '2px',
   '': '4px',
@@ -33,6 +33,29 @@ export const borderRadii = {
   'circle': '50%',
   'shaped': '24px 0',
 }
+
+/** Vuetify 3 theme colors, resolved through `--v-theme-*` variables */
+export const defaultThemeColors = [
+  'primary',
+  'secondary',
+  'success',
+  'info',
+  'warning',
+  'error',
+  'background',
+  'surface',
+  'surface-variant',
+  'surface-bright',
+  'on-primary',
+  'on-secondary',
+  'on-success',
+  'on-info',
+  'on-warning',
+  'on-error',
+  'on-background',
+  'on-surface',
+  'on-surface-variant',
+]
 
 type TypographyPreset = Record<string, Record<string, string | number>>
 export const typographyPresets: { md2: TypographyPreset, md3: TypographyPreset } = {
@@ -150,6 +173,8 @@ export interface PresetVuetifyOptions {
   typography?: TypographyOptions
   elevation?: ElevationOptions
   breakpoints?: Record<string, string>
+  borderRadius?: Record<string, string>
+  themeColors?: string[]
   important?: boolean
   font?: Record<string, string>
   themes?: string[]

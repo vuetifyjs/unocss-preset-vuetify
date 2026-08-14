@@ -176,13 +176,66 @@ presetVuetify({
   // Number of spacer steps, generates 0-N (default: 16)
   spacerSteps: 16,
 
-  // Custom breakpoints
-  breakpoints: {
-    sm: '600px',
-    md: '960px',
-    lg: '1280px',
-    xl: '1920px',
-    xxl: '2560px',
+  // 'md3' (default), 'md2' or your own map
+  elevation: 'md3',
+  typography: 'md3',
+
+  font: {
+    heading: 'Spectral, sans-serif',
+    body: 'Karla, sans-serif',
+    mono: '"Red Hat Mono", monospace',
+  },
+
+  // Theme names for the class variants (e.g. `dark:bg-primary`)
+  themes: ['light', 'dark'],
+
+  // Rule groups to skip entirely
+  exclude: ['cursor'],
+})
+```
+
+### Advanced customization
+
+The defaults are exported to build on, so you can use them to extend configuration.
+
+```ts
+import { defaultBorderRadii, defaultThemeColors, presetVuetify } from 'unocss-preset-vuetify'
+
+presetVuetify({
+  borderRadius: { ...defaultBorderRadii, lg: '12px' },
+  themeColors: [...defaultThemeColors, 'tertiary', 'banner'],
+})
+```
+
+or provide your own options instead
+
+```ts
+presetVuetify({
+  borderRadius: {
+    '0': '0',
+    'sm': '4px',
+    'md': '8px',
+    'lg': '16px',
+    'pill': '9999px',
+  },
+  themeColors: [
+    'brand',
+    'accent',
+    'neutral',
+    'background',
+    'surface',
+    'surface-variant',
+  ]
+})
+```
+
+`typography` and `elevation` work the same way, with `typographyPresets` / `elevationPresets` exported for md2 and md3:
+
+```ts
+presetVuetify({
+  typography: {
+    ...typographyPresets.md3,
+    'display-large': { fontSize: '4rem', fontWeight: 500 },
   },
 })
 ```

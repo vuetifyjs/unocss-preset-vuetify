@@ -1,30 +1,9 @@
 import type { Rule } from 'unocss'
+import type { PresetVuetifyOptions } from '../../theme'
+import { defaultThemeColors } from '../../theme'
 import { APCAcontrast } from './APCA'
 import { paletteColors, shades } from './palette'
 import { parseColor } from './utils'
-
-// Theme colors use Vuetify 3's CSS variable system
-const themeColors = [
-  'primary',
-  'secondary',
-  'success',
-  'info',
-  'warning',
-  'error',
-  'background',
-  'surface',
-  'surface-variant',
-  'surface-bright',
-  'on-primary',
-  'on-secondary',
-  'on-success',
-  'on-info',
-  'on-warning',
-  'on-error',
-  'on-background',
-  'on-surface',
-  'on-surface-variant',
-]
 
 function getForeground (color: string) {
   const blackContrast = Math.abs(APCAcontrast(parseColor(0), parseColor(color)))
@@ -44,11 +23,11 @@ function textCss (color: string) {
   return { color }
 }
 
-export function colorRules (): Rule[] {
+export function colorRules (options: PresetVuetifyOptions = {}): Rule[] {
   const rules: Rule[] = []
 
   // Vuetify 3 theme colors via CSS variables
-  for (const name of themeColors) {
+  for (const name of options.themeColors ?? defaultThemeColors) {
     rules.push(
       [`bg-${name}`, {
         'background-color': `rgb(var(--v-theme-${name}))`,

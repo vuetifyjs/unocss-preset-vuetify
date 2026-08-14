@@ -56,7 +56,7 @@ export function typographyRules (typography: TypographyOptions = 'md3'): Rule[] 
   rules.push(
     ['font-italic', { 'font-style': 'italic' }],
     ['text-italic', { 'font-style': 'italic' }],
-    ['text-mono', { 'font-family': 'monospace' }],
+    ['text-mono', { 'font-family': 'var(--v-font-mono, monospace)' }],
     ['text-high-emphasis', { opacity: 'var(--v-high-emphasis-opacity, 0.87)' }],
     ['text-medium-emphasis', { opacity: 'var(--v-medium-emphasis-opacity, 0.6)' }],
     ['text-disabled', { opacity: 'var(--v-disabled-opacity, 0.38)' }],
